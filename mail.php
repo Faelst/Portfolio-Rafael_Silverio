@@ -1,10 +1,9 @@
 <?php
     $to = 'fael_st@hotmail.com';
-    $firstname = $_POST["fname"];
-    $laststname = $_POST["lname"];
+    $firstname = $_POST["name"];
     $email= $_POST["email"];
+    $assunto= $_POST["subject"];
     $text= $_POST["message"];
-    $phone= $_POST["phone"];
     
 
 
@@ -13,20 +12,18 @@
     $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 
     $message ='<table style="width:100%">
-        <tr>
-        <td>nome: '.$firstname.'  '.$laststname.'</td>
-        </tr>
+        <tr><td>nome: '.$firstname.'</td></tr>
         <tr><td>Email: '.$email.'</td></tr>
-        <tr><td>phone: '.$phone.'</td></tr>
-        <tr><td>Text: '.$text.'</td></tr>
+        <tr><td>assunto: '.$assunto.'</td></tr>
+        <tr><td>Menssagem: '.$text.'</td></tr>
         
     </table>';
 
     if (@mail($to, $email, $message, $headers))
     {
-        echo 'The message has been sent.';
+        echo 'Menssagem enviada com sucesso.';
     }else{
-        echo 'failed';
+        echo 'Falha ao enviar.';
     }
 
 ?>
